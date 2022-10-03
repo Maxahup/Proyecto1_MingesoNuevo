@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Empleados</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">MueblesStgo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/fichero/subir">Subir horas de llegada</a>
+                </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/fichero/subir/justificar">Subir Justificativos</a>
+                </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/fichero/subir/autorizar">Subir Autorizaciones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/fichero/subir/pagos">Generar reporte Sueldos</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+    <div class="container">
+        <div class="row">
+            <h1>Empleados registrados</h1>
+        </div>
+        <div class="text-end">
+            <a href="/calcular_sueldo" class="btn btn-primary mb-3">
+                Obtener Sueldos
+            </a>
+        </div>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Rut</th>
+                <th>Categoria</th>
+                <th>Sueldo Bruto</th>
+                <th>Anno Contratacion</th>
+                <th>Mes Contratacion</th>
+                <th>Descuento Atrasos</th>
+                <th>Bonificacion</th>
+                <th>Descuento Cotizacion</th>
+                <th>Sueldo Liquido</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="empleado: ${empleados}">
+                <td th:text="${empleado.nombres}">nombres</td>
+                <td th:text="${empleado.apellidos}">Apellidos</td>
+                <td th:text="${empleado.rut}">Rut</td>
+                <td th:text="${empleado.categoria}">Categoria</td>
+                <td th:text="${empleado.sueldo_bruto}">Sueldo Bruto</td>
+                <td th:text="${empleado.anno_contratacion}">Anno Contratacion</td>
+                <td th:text="${empleado.mes_contratacion}">Mes Contratacion</td>
+                <td th:text="${empleado.desc_atrasos}">Descuento Atrasos</td>
+                <td th:text="${empleado.bonificacion}">Bonificacion</td>
+                <td th:text="${empleado.desc_cotizacion}">Descuento Cotizacion</td>
+                <td th:text="${empleado.sueldo_liquido}">Sueldo Liquido</td>
+            </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</body>
+</html>
