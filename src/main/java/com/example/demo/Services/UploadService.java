@@ -13,9 +13,9 @@ import java.nio.file.Paths;
 
 @Service
 public class UploadService {
-    //private String carpeta="src/main/java/com/example/Proyecto_Mingeso/Data_Files//";
+    private String carpeta="src/main/java/com/example/demo/Data_Files//";
     private String separator = File.separator;
-    private String carpeta = "src"+separator+"main"+separator+"java"+separator+"com.example.demo"+"Data_Files"+separator;
+    //private String carpeta = "src"+separator+"main"+separator+"java"+separator+"com.example.demo"+"Data_Files"+separator;
     private final Logger logg = LoggerFactory.getLogger(UploadService.class);
 
     public String save(MultipartFile file) {

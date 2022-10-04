@@ -28,22 +28,14 @@ public class EmpleadoController {
     }
     @PostMapping("/calcular_sueldos")
     public String calcular(Model modelo){
-        modelo.addAttribute("empleados", empleadoService.generatePayment());
+        modelo.addAttribute("empleados", empleadoService.generatePayment(1));
         return "emplados";
     }
-/*
-    @PostMapping("/empleados")
-    public String generarPagoEmpleado(@ModelAttribute("empleado") Empleado empleado){
-        empleado.addAttribute("empleados", empleadoService.generatePayment());
-        return "empleados";
-    }
 
-
- */
     @GetMapping("/empleados/editar/{id}")
     public String mostrarFormularioCalculo(@PathVariable Integer id, Model modelo){
         modelo.addAttribute("empleado", empleadoService.obtenerEmpleadoId(id));
-        return "formulario_calculo";
+        return "actualizar_empleado";
     }
 
     @PostMapping("/empleados/{id}")

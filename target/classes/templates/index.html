@@ -48,30 +48,8 @@
         </a>
     </div>
 
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>nombres</th>
-            <th>apellidos</th>
-            <th>rut</th>
-            <th>categoria</th>
-            <th>sueldo_bruto</th>
-            <th>anno_contratacion</th>
-            <th>mes_contratacion</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="empleado : ${empleados}" th:object="${empleado}">
-            <td>
-                <div th:text="*{nombres}"></div>
-                <div th:text="*{apellidos}"></div>
-                <div th:text="*{sueldo_bruto}"></div>
-                <div th:text="*{categoria}"></div>
-
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <h1>Bienvenido a MueblesStgo, en esta pagina se puede generar el sueldo
+    de los empleados que se encuentren registrados en la empresa.</h1>
 </div>
 
 <!-- JavaScript Bundle with Popper -->

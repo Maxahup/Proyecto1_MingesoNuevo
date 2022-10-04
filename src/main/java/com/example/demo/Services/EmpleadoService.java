@@ -8,7 +8,7 @@ public interface EmpleadoService {
 
     public List<Empleado> listarTodosEmpleados();
 
-    public List<Empleado> generatePayment();
+    public Empleado generatePayment(Integer id);
 
     public Empleado obtenerEmpleadoId(Integer id);
 
