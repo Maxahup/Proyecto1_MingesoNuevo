@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,7 +13,9 @@ import java.nio.file.Paths;
 
 @Service
 public class UploadService {
-    private String carpeta="src/main/java/com/example/Proyecto_Mingeso/Data_Files//";
+    //private String carpeta="src/main/java/com/example/Proyecto_Mingeso/Data_Files//";
+    private String separator = File.separator;
+    private String carpeta = "src"+separator+"main"+separator+"java"+separator+"com.example.demo"+"Data_Files"+separator;
     private final Logger logg = LoggerFactory.getLogger(UploadService.class);
 
     public String save(MultipartFile file) {
