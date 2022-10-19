@@ -18,6 +18,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.Scanner;
 
 @Service
 public class FileSystemStorageService implements StorageService {
@@ -45,6 +46,9 @@ public class FileSystemStorageService implements StorageService {
         }
         try {
             InputStream inputStream = file.getInputStream();
+            Scanner s = new Scanner(inputStream).useDelimiter("\\A");
+            String result = s.hasNext() ? s.next() : "";
+            System.out.println(result);
             Files.copy(inputStream, Paths.get(storageLocation).resolve(filename), StandardCopyOption.REPLACE_EXISTING);
         }catch(IOException e) {
             throw new StorageException("Error al guardar el archivo: " + filename, e);

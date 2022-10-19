@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -22,6 +23,12 @@ public class UploadService {
         if (!file.isEmpty()){
             try {
                 byte [] bytes=file.getBytes();
+                //System.out.println(bytes);
+                String str = new String(bytes, StandardCharsets.UTF_8);
+                //System.out.println(str);
+                String[] data = str.split("\n");
+                System.out.println(data[0]);
+                System.out.println(data[1]);
                 Path path = Paths.get(carpeta+file.getOriginalFilename());
                 Files.write(path, bytes);
                 logg.info("Archivo cargado correctamente");
